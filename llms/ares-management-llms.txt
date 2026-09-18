@@ -1,0 +1,71 @@
+# Ares Management
+
+> Ares Management Corporation (NYSE: ARES) is a global alternative investment manager founded in
+> 1997 and headquartered in Los Angeles. It invests across credit, real estate, infrastructure,
+> private equity and secondaries on behalf of institutional and private-wealth clients, with
+> roughly $671 billion of assets under management, 60+ offices and about 4,400 employees as
+> stated on its own site in September 2026. Its corporate web presence moved from aresmgmt.com
+> to ares.com; the legacy domain now redirects.
+
+## Machine-readable API surface
+
+**Ares Management publishes no API.** As of 2026-09-18 the company operates no developer
+program, no developer portal, no SDK, and no machine-readable contract of any kind. This was
+established by probe, not by assumption:
+
+- No OpenAPI, Swagger, GraphQL SDL, AsyncAPI, MCP or A2A surface on any host the company
+  controls (`/openapi.json`, `/swagger.json`, `/api-docs`, `/.well-known/agent-card.json`,
+  `/.well-known/agent.json` and the rest all 404 on `www.ares.com`).
+- `developer.aresmgmt.com`, `api.aresmgmt.com` and `api-everest.aresmgmt.com` resolve only
+  through a wildcard DNS record and nothing listens on them - every connection times out.
+  `developer.ares.com` and `api.ares.com` do not resolve at all.
+- Every `/.well-known/` discovery path on `www.ares.com` and `ir.ares.com` returned 404, and
+  every one on the legacy `www.aresmgmt.com` redirects to the ares.com homepage rather than a
+  document (see `well-known/ares-management-well-known.yml` for the full probe record).
+- The published sitemap (`https://www.ares.com/sitemap.xml`, 1,055 URLs) contains no
+  developer, API, docs or integration page. Its sections are who-we-are, news-and-insights,
+  press-releases, our-strategies, businesses-and-products, private-wealth, careers and legal.
+- The company's GitHub organization (`https://github.com/aresmgmt`, contact devops@aresmgmt.com)
+  has zero public repositories.
+- The only investor-facing software surfaces are gated portals: Ares Connect
+  (`aresconnect.aresmgmt.com`, Cloudflare-403 to the public) and a BeyondTrust remote-support
+  console at `support.aresmgmt.com`. Neither documents an API.
+
+If you are an agent looking for a callable Ares Management API, there is not one to call.
+Public company data about Ares is available from the SEC (EDGAR filings for NYSE: ARES) and
+from the investor-relations site, not from an Ares-operated API.
+
+## Company pages
+
+- [Home](https://www.ares.com/): corporate overview.
+- [Our Story](https://www.ares.com/us/who-we-are/our-story): history since 1997, scale, IPO.
+- [Our Businesses - Credit](https://www.ares.com/us/businesses-and-products/our-businesses/credit)
+- [Our Businesses - Real Estate](https://www.ares.com/us/businesses-and-products/our-businesses/real-estate)
+- [Our Businesses - Infrastructure](https://www.ares.com/us/businesses-and-products/our-businesses/infrastructure)
+- [Our Businesses - Private Equity](https://www.ares.com/us/businesses-and-products/our-businesses/private-equity)
+- [Our Businesses - Secondaries](https://www.ares.com/us/businesses-and-products/our-businesses/secondaries)
+- [News & Insights](https://www.ares.com/us/news-and-insights): perspectives and articles.
+- [Press Releases](https://www.ares.com/us/news-and-insights/press-releases)
+- [Investor Relations](https://ir.ares.com/): NYSE: ARES filings, results and events.
+- [Careers](https://www.ares.com/us/careers)
+- [Contact](https://www.ares.com/us/contact)
+
+## Security and fraud
+
+- [Cybersecurity & Fraud Awareness](https://www.ares.com/us/fraud-awareness): investor
+  phishing / impersonation guidance. Suspected impersonation of Ares can be reported to
+  abusereport@ares.com. This is NOT a vulnerability-disclosure program and no security.txt,
+  bug bounty or trust center is published.
+
+## Legal
+
+- [Terms of Use](https://www.ares.com/us/terms-of-use)
+- [Privacy Policy](https://www.ares.com/us/privacy-policy)
+- [Cookie Policy](https://www.ares.com/us/cookie-policy)
+- [Legal Disclosures](https://www.ares.com/us/legal-disclosures)
+
+## About this file
+
+Generated 2026-09-18 by API Evangelist from the provider record in `apis.yml` and the probes
+recorded in this repository (method: generated). Ares Management does not publish an
+`llms.txt` of its own (`https://www.ares.com/llms.txt` -> 404). Corrections: info@apievangelist.com.

@@ -4,10 +4,11 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Ares Management
 providerId: ares-management
 created: '2026-05-04'
-# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
-# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-05'
+# Provenance: originally written by the API Evangelist bulk sweep of 2026-05-04 (roadmap#35);
+# re-searched 2026-09-18 against ares.com / aresmgmt.com and confirmed as a recorded absence.
+method: searched
+modified: '2026-09-18'
+plan_count: 0
 reconciled: false
 tags:
 - Alternative Investment
@@ -15,9 +16,11 @@ tags:
 - Private Equity
 description: Ares Management does not publish a public API plans / pricing page. This artifact records
   the absence of a self-serve commercial surface; see notes for research findings.
-notes: Ares Management does not publish a public developer pricing page. Any platform integrations are
-  limited-partner / institutional and governed by individual agreements.
+notes: >-
+  Ares Management publishes no API plans or pricing page and no developer program of any kind. Searched 2026-09-18: the ares.com sitemap (1,055 URLs) carries no pricing, developer, API or docs page; www.ares.com/openapi.json, /api-docs and every /.well-known/ discovery path 404; developer.aresmgmt.com and api.aresmgmt.com are wildcard-DNS hosts with nothing listening. Investor access runs through gated client portals (Ares Connect) under individual agreements, not a self-serve tier.
 sources:
+- https://www.ares.com/sitemap.xml
+- https://www.ares.com/us/private-wealth/investor-resources
 - https://www.aresmgmt.com
 plans:
 - id: ares-management-contact-sales

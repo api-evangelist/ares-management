@@ -4,10 +4,11 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Ares Management
 providerId: ares-management
 created: '2026-05-04'
-# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
-# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-05'
+# Provenance: originally written by the API Evangelist bulk sweep of 2026-05-04 (roadmap#35);
+# re-searched 2026-09-18 against ares.com / aresmgmt.com and confirmed as a recorded absence.
+method: searched
+modified: '2026-09-18'
+limit_count: 0
 reconciled: false
 tags:
 - Alternative Investment
@@ -18,8 +19,11 @@ tags:
 - Throttling
 description: Ares Management does not publish concrete rate-limit numbers, throttling thresholds, or response-header
   conventions. This artifact records the gap; see notes for research findings.
-notes: No public rate-limit documentation. Integrations are governed by partner contracts.
+notes: >-
+  Ares Management publishes no rate-limit numbers, throttling policy or response-header conventions because it publishes no API. Searched 2026-09-18: no developer documentation exists on ares.com (sitemap has no developer/API/docs page), and the api-shaped hostnames under aresmgmt.com (developer., api., api-everest.) do not answer. The responseCodes/limits/policies below are generic guidance retained from the earlier scaffold, not provider-published values.
 sources:
+- https://www.ares.com/sitemap.xml
+- https://www.ares.com/us/private-wealth/investor-resources
 - https://www.aresmgmt.com
 responseCodes:
   throttled: 429

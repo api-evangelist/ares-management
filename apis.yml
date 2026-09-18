@@ -27,36 +27,96 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/ares-management.png
 tags:
-  - Alternative Investment
-  - Credit
-  - Private Equity
+- Alternative Investment
+- Credit
+- Private Equity
+- Real Estate
+- Infrastructure
+- Asset Management
+- Secondaries
+- Financial Services
 description: >-
-  Ares Management is a major US corporation and Fortune 1000 company. The Ares Management API provides programmatic access to its platform services, data, and integrations for enterprise customers and partners.
+  Ares Management Corporation (NYSE: ARES) is a global alternative investment manager founded in 1997
+  and headquartered in Los Angeles, investing across credit, real estate, infrastructure, private equity
+  and secondaries for institutional and private-wealth clients, with roughly $671 billion of assets under
+  management, 60+ offices and about 4,400 employees as stated on its site in September 2026. Its corporate
+  web presence moved from aresmgmt.com to ares.com. Ares publishes no public API, developer portal, SDK
+  or machine-readable contract; its only investor-facing software surfaces are gated client portals.
 created: '2026-04-19'
-modified: '2026-04-19'
+modified: '2026-09-18'
 specificationVersion: '0.23'
-apis:
-  - aid: ares-management:ares-management-api
-    name: Ares Management API
-    tags:
-      - Alternative Investment
-      - Credit
-      - Private Equity
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    baseURL: https://api.aresmgmt.com
-    humanURL: https://developer.aresmgmt.com
-    properties:
-      - url: https://developer.aresmgmt.com/docs
-        type: Documentation
-    description: >-
-      The Ares Management API provides access to platform services and data for enterprise integration and automation.
+apis: []
 common:
-  - type: DomainSecurity
-    url: security/ares-management-domain-security.yml
-  - type: LinkedIn
-    url: https://www.linkedin.com/company/ares-management
-  - type: Website
-    url: https://www.aresmgmt.com
+- type: Website
+  url: https://www.aresmgmt.com
+- type: About
+  url: https://www.ares.com/us/who-we-are/our-story
+- type: Newsroom
+  url: https://www.ares.com/us/news-and-insights/press-releases
+- type: Blog
+  url: https://www.ares.com/us/news-and-insights
+- type: Support
+  url: https://www.ares.com/us/contact
+- type: Careers
+  url: https://www.ares.com/us/careers
+- type: InvestorRelations
+  url: https://ir.ares.com/
+- type: TermsOfService
+  url: https://www.ares.com/us/terms-of-use
+- type: PrivacyPolicy
+  url: https://www.ares.com/us/privacy-policy
+- type: GitHubOrganization
+  url: https://github.com/aresmgmt
+- type: LinkedIn
+  url: https://www.linkedin.com/company/ares-management
+- type: LLMsTxt
+  url: llms/ares-management-llms.txt
+- type: Plans
+  url: plans/ares-management-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/ares-management-rate-limits.yml
+- type: DomainSecurity
+  url: security/ares-management-domain-security.yml
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com
+x-enrichment:
+  date: '2026-09-18'
+  status: minimal
+  artifacts_added: 2
+  pass: local-v3
+x-coverage:
+  state: none
+  reason: not-a-software-company
+  detail: >-
+    Ares Management is a NYSE-listed alternative asset manager whose product is fund management, not software:
+    its 1,055-URL sitemap on the current ares.com domain has no developer, API or docs page, every /openapi.json,
+    /api-docs and /.well-known/ discovery path on www.ares.com and ir.ares.com returns a real 404, the
+    api-shaped hostnames the earlier scaffold named (developer.aresmgmt.com, api.aresmgmt.com, api-everest.aresmgmt.com)
+    resolve only via a wildcard A record with nothing listening, the aresmgmt GitHub organization has
+    zero public repositories, and the only client software surfaces (Ares Connect, a BeyondTrust support
+    console) are gated portals with no documented API.
+  evidence:
+  - url: https://www.ares.com/sitemap.xml
+    status: 200
+  - url: https://www.ares.com/openapi.json
+    status: 404
+  - url: https://www.ares.com/.well-known/agent-card.json
+    status: 404
+  - url: https://www.ares.com/.well-known/api-catalog
+    status: 404
+  - url: https://www.ares.com/llms.txt
+    status: 404
+  - url: https://developer.aresmgmt.com/docs
+    status: 0
+  - url: https://api.aresmgmt.com/
+    status: 0
+  - url: https://api-everest.aresmgmt.com/openapi.json
+    status: 0
+  - url: https://www.aresmgmt.com/
+    status: 403
+  - url: https://aresconnect.aresmgmt.com/
+    status: 403
+  - url: https://api.github.com/orgs/aresmgmt
+    status: 200
+  checked: '2026-09-18'

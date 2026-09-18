@@ -1,17 +1,20 @@
-generated: '2026-07-11'
+generated: '2026-09-18'
 method: probed
-source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts, extended by hand on 2026-09-18 to www.ares.com
+  / ares.com, the current corporate domain that aresmgmt.com now 301s to
 hosts:
 - host: www.aresmgmt.com
   https: true
   tls_version: TLSv1.3
-  cert_expires: Oct  6 05:07:22 2026 GMT
+  cert_expires: Dec  4 06:48:52 2026 GMT
+  hsts: null
+- host: www.ares.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Dec 17 12:12:49 2026 GMT
   hsts: true
   hsts_max_age: 31557600
-- host: developer.aresmgmt.com
-  https: false
-- host: api.aresmgmt.com
-  https: false
+  note: Current corporate host; aresmgmt.com redirects here.
 domains:
 - domain: aresmgmt.com
   dnssec: false
@@ -19,3 +22,10 @@ domains:
   spf: true
   dmarc: true
   dmarc_policy: quarantine
+- domain: ares.com
+  dnssec: false
+  caa: []
+  spf: false
+  dmarc: true
+  dmarc_policy: quarantine
+  note: No SPF TXT record observed at the apex on 2026-09-18 (DMARC is published via Proofpoint).

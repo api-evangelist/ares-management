@@ -1,0 +1,155 @@
+generated: '2026-09-18'
+method: probed
+source: >-
+  Live unauthenticated GET of the /.well-known/ path list against every host this record
+  knows: the legacy registrable domain aresmgmt.com (apex + www), the current corporate
+  host www.ares.com that aresmgmt.com now 301s to, the investor-relations host ir.ares.com,
+  and the three api-shaped hostnames the earlier scaffold and a stale search-index entry
+  named under aresmgmt.com (developer., api., api-everest.). No fetched discovery document
+  named an authorization_servers host, and there is no OpenAPI servers[] host, so the host
+  list is complete.
+note: >-
+  Nothing was served. This file records a measured ABSENCE, not a presence, so NO WellKnown,
+  APICatalog or SecurityTxt pointer is wired into apis.yml. Three distinct miss shapes were
+  observed and are recorded separately because they mean different things. (1) www.ares.com
+  answers every /.well-known/ path with a real 404 whose body is the AEM "Page Not Found"
+  template - an honest miss. (2) www.aresmgmt.com and the apex answer every /.well-known/
+  path with a 301 to https://www.ares.com/ whose final body is the ares.com HOMEPAGE (200,
+  text/html, template=home-page); a 200 that returns the site shell is not a document and is
+  recorded as a miss. Page paths on the same legacy host (/, /about-...) are refused with a
+  Cloudflare 403 "Attention Required" bot block to both curl and a browser User-Agent. (3)
+  developer.aresmgmt.com, api.aresmgmt.com and api-everest.aresmgmt.com resolve through a
+  wildcard A record (any random label under aresmgmt.com resolves to 20.83.106.42 /
+  20.123.143.233) but nothing listens on :443 or :80 - every connection times out (status 0).
+  These hosts are not API surfaces; the apis[] entry that pointed at them was a scaffold and
+  has been removed. developer.ares.com and api.ares.com do not resolve at all (NXDOMAIN).
+hosts:
+- host: www.ares.com
+  note: Current corporate host (aresmgmt.com redirects here). Honest 404 on every path.
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+  - path: /.well-known/agent.json
+    status: 404
+    file: null
+  - path: /llms.txt
+    status: 404
+    file: null
+- host: www.aresmgmt.com
+  note: >-
+    Legacy domain. Every /.well-known/ path 301s to https://www.ares.com/ and lands on the
+    homepage HTML (status recorded is the final status; the body is the site shell, not a
+    document, so each is a miss). Page paths are Cloudflare-403 bot-blocked.
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    file: null
+    body: html-shell
+  - path: /security.txt
+    status: 200
+    file: null
+    body: html-shell
+  - path: /.well-known/openid-configuration
+    status: 200
+    file: null
+    body: html-shell
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    file: null
+    body: html-shell
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    file: null
+    body: html-shell
+  - path: /.well-known/api-catalog
+    status: 200
+    file: null
+    body: html-shell
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    file: null
+    body: html-shell
+  - path: /.well-known/agent-card.json
+    status: 200
+    file: null
+    body: html-shell
+  - path: /.well-known/agent.json
+    status: 200
+    file: null
+    body: html-shell
+  - path: /llms.txt
+    status: 200
+    file: null
+    body: html-shell
+- host: aresmgmt.com
+  note: Apex. Same 301-to-homepage behaviour as www.
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    file: null
+    body: html-shell
+- host: ir.ares.com
+  note: Investor-relations host (ir.aresmgmt.com redirects here). Honest 404.
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+- host: developer.aresmgmt.com
+  note: Wildcard DNS, nothing listening on 443/80 - connection timeout.
+  documents:
+  - path: /
+    status: 0
+    file: null
+  - path: /docs
+    status: 0
+    file: null
+- host: api.aresmgmt.com
+  note: Wildcard DNS, nothing listening on 443/80 - connection timeout.
+  documents:
+  - path: /
+    status: 0
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 0
+    file: null
+- host: api-everest.aresmgmt.com
+  note: >-
+    Named by a stale search-engine index entry titled "Ares Management | Leading Alternative
+    Investment Manager". Wildcard DNS, nothing listening - connection timeout on every path
+    (/, /openapi.json, /swagger.json, /swagger/v1/swagger.json, /api-docs, /docs, /redoc,
+    /graphql, /.well-known/agent-card.json, /.well-known/openid-configuration).
+  documents:
+  - path: /
+    status: 0
+    file: null
+  - path: /openapi.json
+    status: 0
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 0
+    file: null
