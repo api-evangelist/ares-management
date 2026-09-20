@@ -1,0 +1,14 @@
+{
+  "repo": "ares-management",
+  "feeds": [
+    {
+      "source": "https://www.ares.com/us/news-and-insights/press-releases",
+      "feed_url": "https://www.ares.com/us/news-and-insights/press-releases",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    }
+  ],
+  "post_count": 0,
+  "fetched": "2026-09-19T20:17:39Z"
+}
