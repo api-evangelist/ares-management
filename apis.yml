@@ -30,11 +30,11 @@ tags:
 - Alternative Investment
 - Credit
 - Private Equity
-- Real-Estate
+- Real Estate
 - Infrastructure
 - Asset Management
 - Secondaries
-- Financial-Services
+- Financial Services
 tags_raw:
 - Alternative Investment
 - Credit
@@ -44,6 +44,8 @@ tags_raw:
 - Asset Management
 - Secondaries
 - Financial Services
+- Real-Estate
+- Financial-Services
 description: >-
   Ares Management Corporation (NYSE: ARES) is a global alternative investment manager founded in 1997
   and headquartered in Los Angeles, investing across credit, real estate, infrastructure, private equity
