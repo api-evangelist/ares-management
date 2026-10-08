@@ -58,6 +58,8 @@ modified: '2026-09-18'
 specificationVersion: '0.23'
 apis: []
 common:
+- type: FinOps
+  url: finops/ares-management-finops.yml
 - type: Website
   url: https://www.aresmgmt.com
 - type: About
